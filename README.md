@@ -9,7 +9,7 @@ will also work for pure Archlinux
 remove all panels
 
 I just start up with the default XFCE-install from Antergos, and adding i3-wm packages from my list of packages:
-cat packages.txt | xargs yaourt -S --needed --noconfirm
+`cat packages.txt | xargs yaourt -S --needed --noconfirm`
 
 
 
