@@ -13,4 +13,4 @@ cat packages.txt | xargs yaourt -S --needed --noconfirm
 
 
 
-[![i3-xfce4-joekamprad](https://i.imgur.com/Wd5tUxQ.jpg)]
+![i3-xfce4-joekamprad](https://i.imgur.com/Wd5tUxQ.jpg)
