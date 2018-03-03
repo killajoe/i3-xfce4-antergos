@@ -1,0 +1,367 @@
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# setting mod variable to windows key
+set $mod Mod4
+
+
+# https://i3wm.org/docs/userguide.html#_focus_wrapping
+force_focus_wrapping yes
+
+# default workspace layout
+workspace_layout tabbed
+
+# Assume you are on workspace "1: www" and switch to "2: IM" using mod+2 
+# because somebody sent you a message. You don’t need to remember 
+# where you came from now, you can just press $mod+2 again to switch back to "1: www".
+workspace_auto_back_and_forth yes
+
+# window (client) colors
+# class                 border  backgr. text    indicator
+client.focused          #000000 #0088CC #ffffff #dddddd
+client.focused_inactive #000000 #333333 #888888 #292d2e
+client.unfocused        #000000 #333333 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+# font pango:DejaVu Sans Mono 8
+font pango:Droid Sans Regular 10
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# turn on mouse following
+focus_follows_mouse yes
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec xfce4-terminal
+
+# kill focused window
+bindsym F4 kill
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout 
+bindsym $mod+e layout toggle all
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+d focus child
+
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+#workspace-edit
+set $ws1 "Terminals "
+set $ws2 "Browser "
+set $ws3 "Email "
+set $ws4 "Dateien  "
+
+# switch to workspace
+bindsym $mod+1    workspace  $ws1
+bindsym $mod+2    workspace  $ws2
+bindsym $mod+3    workspace  $ws3
+bindsym $mod+4    workspace  $ws4
+bindsym $mod+5    workspace  5
+bindsym $mod+6    workspace  6
+bindsym $mod+7    workspace  7
+bindsym $mod+8    workspace  8
+bindsym $mod+9    workspace  9
+bindsym $mod+0    workspace  0
+
+# move focused container to workspace
+
+bindsym $mod+Shift+1    move container to workspace  $ws1
+bindsym $mod+Shift+2    move container to workspace  $ws2
+bindsym $mod+Shift+3    move container to workspace  $ws3
+bindsym $mod+Shift+4    move container to workspace  $ws4
+bindsym $mod+Shift+5    move container to workspace  5
+bindsym $mod+Shift+6    move container to workspace  6
+bindsym $mod+Shift+7    move container to workspace  7
+bindsym $mod+Shift+8    move container to workspace  8
+bindsym $mod+Shift+9    move container to workspace  9
+bindsym $mod+Shift+0    move container to workspace  0
+
+# start applications
+#bind program to workspace
+assign [class="Terminator"] $ws1
+assign [class="Vivaldi-stable"] $ws2
+assign [class="Geary"] $ws3
+assign [class="Nautilus"] $ws4
+assign [class="Terminator"] $ws1
+
+#exec --no-startup-id xset m 3/1 3
+
+#exec_always --no-startup-id feh --bg-scale /home/killajoe/Bilder/wall.jpg
+exec --no-startup-id /usr/bin/wallee &
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)
+exec --no-startup-id vivaldi-stable
+exec --no-startup-id geary
+exec --no-startup-id nautilus
+exec --no-startup-id sleep 2 && terminator
+exec --no-startup-id pamac-tray
+exec --no-startup-id conky -c /home/killajoe/.config/i3/Gotham
+#redshift - Berlin Freienwalder und off switcher hack
+#exec --no-startup-id redshift -l 52.55:13.39
+#bindsym F11 exec pkill redshift
+exec --no-startup-id redshift-gtk
+#exec --no-startup-id pasystray
+
+#set floating (nontiling) for special apps
+for_window [class="Pamac-manager" instance="pamac-manager"] floating enable
+for_window [class="Pamac-updater" instance="pamac-updater"] floating enable
+for_window [class="Xfce4-terminal" instance="xfce4-terminal"] floating enable
+#for_window [class="Gedit" instance="gedit"] floating enable
+for_window [class="Empathy" instance="empathy"] floating enable
+for_window [class="Xsane" instance="xsane"] floating enable
+for_window [class="Redshiftgui.elf" instance="redshiftgui.elf"] floating enable
+for_window [class="etcher-electron" instance="etcher-electron"] floating enable
+
+#load nvidia-settings
+exec nvidia-settings --config /home/killajoe/.nvidia-settings-rc --load-config-only
+
+#transparency
+#exec --no-startup-id compton -cCfb
+exec --no-startup-id compton --config ~/.config/compton.conf -b
+
+#exit-menu
+bindsym $mod+Shift+e exec /home/killajoe/.config/i3/scripts/exit_menu
+
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+
+# exit i3 (logs you out of your X session)
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Takes a screenshot
+# of the whole screen
+bindsym Print exec gnome-screenshot -i
+# of the focused window
+bindsym Shift+Print exec gnome-screenshot -w
+
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    bindsym Left   resize shrink width  5 px or 5 ppt
+    bindsym Down   resize shrink height 5 px or 5 ppt
+    bindsym Up     resize grow height   5 px or 5 ppt
+    bindsym Right  resize grow width    5 px or 5 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+mode "mouse" {
+    # set your three speeds here
+
+    set $slow 1
+    set $quick 10
+    set $fast 50
+
+    # Mouse movement (slow/fine-tuned) -- vim keybindings
+
+    bindsym h exec xdotool mousemove_relative -- -$slow 0
+    bindsym j exec xdotool mousemove_relative 0 $slow
+    bindsym k exec xdotool mousemove_relative -- 0 -$slow
+    bindsym l exec xdotool mousemove_relative $slow 0
+
+    # Mouse movement (slow/fine-tuned) -- arrow keys
+
+    bindsym Left exec xdotool mousemove_relative -- -$slow 0
+    bindsym Down exec xdotool mousemove_relative 0 $slow
+    bindsym Up exec xdotool mousemove_relative -- 0 -$slow
+    bindsym Right exec xdotool mousemove_relative $slow 0
+
+    # Mouse movement (quicker) -- vim keybindings
+
+    bindsym Shift+h exec xdotool mousemove_relative -- -$quick 0
+    bindsym Shift+j exec xdotool mousemove_relative 0 $quick
+    bindsym Shift+k exec xdotool mousemove_relative -- 0 -$quick
+    bindsym Shift+l exec xdotool mousemove_relative $quick 0
+
+    # Mouse movement (quicker) -- arrow keys
+
+    bindsym Shift+Left exec xdotool mousemove_relative -- -$quick 0
+    bindsym Shift+Down exec xdotool mousemove_relative 0 $quick
+    bindsym Shift+Up exec xdotool mousemove_relative -- 0 -$quick
+    bindsym Shift+Right exec xdotool mousemove_relative $quick 0
+
+    # Mouse movement (fast) -- vim keybindings
+
+    bindsym Shift+$mod2+h exec xdotool mousemove_relative -- -$fast 0
+    bindsym Shift+$mod2+j exec xdotool mousemove_relative 0 $fast
+    bindsym Shift+$mod2+k exec xdotool mousemove_relative -- 0 -$fast
+    bindsym Shift+$mod2+l exec xdotool mousemove_relative $fast 0
+
+    # Mouse movement (fast) -- arrow keys
+
+    bindsym Shift+$mod2+Left exec xdotool mousemove_relative -- -$fast 0
+    bindsym Shift+$mod2+Down exec xdotool mousemove_relative 0 $fast
+    bindsym Shift+$mod2+Up exec xdotool mousemove_relative -- 0 -$fast
+    bindsym Shift+$mod2+Right exec xdotool mousemove_relative $fast 0
+
+    # Mouse movement (special down-right)
+
+    bindsym m exec xdotool mousemove_relative 10 10
+
+    # Left Click
+    bindsym f exec xdotool click 1
+
+    # Middle Click
+    bindsym d exec xdotool click 2
+
+    # Right Click
+    bindsym s exec xdotool click 3
+
+    # Left Click-and-drag
+    bindsym Shift+f exec xdotool mousedown 1
+
+    # Middle Click-and-drag 
+    bindsym Shift+d exec xdotool mousedown 2
+
+    # Right Click-and-drag
+    bindsym Shift+s exec xdotool mousedown 3
+
+    # Left Drag release
+    bindsym $mod2+f exec xdotool mouseup 1
+
+    # Middle Drag release
+    bindsym $mod2+d exec xdotool mouseup 2
+
+    # Right Drag release
+    bindsym $mod2+s exec xdotool mouseup 3
+
+
+    # return to normal keybindings -- IMPORTANT!!
+
+    bindsym Escape mode "default"
+}
+
+# this serves as the exhaustive collection of things one can do with workspaces
+mode "workspace" {
+    bindsym Left   workspace prev_on_output
+    bindsym Right  workspace next_on_ouput
+    bindsym Down   workspace prev
+    bindsym Up     workspace next
+
+    bindsym Tab    layout toggle all
+
+    bindsym r      exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
+
+    bindsym ','    move workspace to output left
+    bindsym '.'    move workspace to output right
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    status_command i3blocks -c /home/killajoe/.config/i3/i3blocks.conf
+#tray_output primary 
+    position bottom
+    colors {
+      separator          #666666
+        background         #222222
+        statusline         #dddddd
+        focused_workspace  #0088CC #0088CC #ffffff
+        active_workspace   #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+    }
+}
+
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+z move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+z scratchpad show
+
+# Hides vertical and horizontal borders when there's only one window.
+# hide_edge_borders both
+hide_edge_borders none
+
+# Toggle border
+bindsym $mod+x border toggle
+
+# window border size
+new_window pixel 1
+
+# Lock the system
+bindsym $mod+l exec i3lock -i ~/.config/i3/i3-lock-screen.png -t -f
+
+
+# rofi bindings
+bindsym F9 exec rofi -modi drun -show drun -lines 10 -eh 3 -width 100 -padding 700 " -bw 0 -opacity "50 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Droid Sans Regular 12"
+bindsym F10 exec rofi -show run   -lines 3 -eh 2 -width 100 -padding 800 " -bw 0 -opacity "85 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Droid Sans Regular 12"
+bindsym F12 exec rofi -show window -lines 3 -eh 2 -width 100 -padding 800 " -bw 0 -opacity "85 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Droid Sans Regular 12"
+
+
+# move any window to the current workspace
+#bindsym F8 exec python3 ~/.config/i3/quickswitch-for-i3/quickswitch.py -m
+
+
+popup_during_fullscreen leave_fullscreen
+show_marks yes
+
+# small window for videos
+bindsym $mod+y fullscreen disable; floating enable; resize set 422 240; sticky enable; move position 870 25
+
+# specific window settings
+#for_window [class="Nemo" instance="^desktop_window$"] floating disable
+
+# chrome extension popups
+for_window [instance="^crx.*$" window_role="pop-up"]  floating enable
+for_window [instance="^crx.*$" window_role="pop-up"]  sticky   enable
