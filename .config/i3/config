@@ -137,24 +137,19 @@ assign [class="Geary"] $ws3
 assign [class="Thunar"] $ws4
 
 #load nvidia-settings
-exec nvidia-settings --load-config-only
+#exec nvidia-settings --load-config-only
 #exec nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
 
 #transparency and wallpaper
 exec --no-startup-id compton --config ~/.config/compton.conf -b
-#exec --no-startup-id compton -cCfb
-#exec_always --no-startup-id feh --bg-scale ~/.config/i3/quallen-1920x1080.png
-exec_always --no-startup-id feh --bg-scale /home/killajoe/Bilder/wallpaper/Black-Hole-1600x1200.jpg
+exec_always --no-startup-id feh --bg-scale ~/.config/i3/quallen-1920x1080.png
 
-#exec --no-startup-id vivaldi-snapshot
 exec --no-startup-id vivaldi-stable
 exec --no-startup-id geary
 exec --no-startup-id sleep 2 && thunar
 exec --no-startup-id sleep 3 && terminator
-#exec --no-startup-id sleep 4 && pamac-user-daemon &
 exec --no-startup-id sleep 4 && redshift-gtk
 exec --no-startup-id pacman -Qqen > ~/packages-repository.txt && pacman -Qqem > ~/packages-AUR.txt
-exec --no-startup-id blueberry-tray
 exec --no-startup-id volumeicon
 
 #set floating (nontiling) for special apps
