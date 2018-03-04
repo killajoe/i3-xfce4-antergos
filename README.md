@@ -4,6 +4,7 @@ will also work for pure Archlinux
 
 
 I just start up with the default XFCE-install from Antergos, and adding i3-wm packages from my list of packages:
+
 `cat packages.txt | xargs yaourt -S --needed --noconfirm`
 
 
@@ -30,13 +31,13 @@ Note: xfwm4 and xfdesktop processes will be replaced by the i3 Window Manager!
 * Click the button **Add** to add i3 to the list of startup applications.
 
 * Fill out the form:
----------------------------------------------------------------
-**Name:**  i3 (or whatever you want to call i3)
 
-**Description:** Tiling Window Manager (or whatever you want)
+'**Name:**  i3 (or whatever you want to call i3)'
 
-**Command:** i3 (must be "i3", as below)
----------------------------------------------------------------
+'**Description:** Tiling Window Manager (or whatever you want)'
+
+'**Command:** i3 (must be "i3", as below)'
+
 
 * Click the button: OK
 
