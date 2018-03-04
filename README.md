@@ -26,6 +26,7 @@ xfwm4 and xfdesktop processes will be replaced by the i3 Window Manager!
 
 * Click the button 'Add' to add i3 to the list of startup applications.
 * Fill out the form:
+
 **Name:**  i3 (or whatever you want to call i3)
 **Description:** Tiling Window Manager (or whatever you want)
 **Command:** i3 (must be "i3", as below)
