@@ -6,6 +6,28 @@ The benefit is to get i3 as environment for the best workflow, but have the ease
 
 I replace xfcewm with i3-wm, and have i3 configured to my needs.
 
+I3 is set to have 4 tabs on bottom left:
+
+**|Terminals|**  = 4 terminals with glances, journal, htop and one open for your input.
+
+**|Files|** = thunar open and up fpr action.
+
+**|Email|** = geary running.
+
+**|Browser|** = vivaldi running.
+
+![tabs](https://i.imgur.com/lAk44Nb.png)
+
+Right bottom carry the info panel:
+with clickable icons for:
+
+* system-update, xfce-settings, volume, and poweroff-logout-menu
+
+
+* RSS-feed, systemmonitor, and tray icons
+
+![right-panel](https://i.imgur.com/YpB4Hob.png)
+
 I just start up with the default XFCE-install from Antergos, and adding i3-wm packages from my list of packages:
 
 `cat packages.txt | xargs yaourt -S --needed --noconfirm`
