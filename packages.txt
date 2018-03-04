@@ -23,4 +23,6 @@ terminator
 polkit-gnome
 ttf-droid
 rsstail
+#blueman - if you need bluetooth support
+#systemd-manager - gui for systemd
 
