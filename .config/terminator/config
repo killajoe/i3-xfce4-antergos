@@ -1,0 +1,84 @@
+[global_config]
+  always_split_with_profile = True
+  borderless = True
+  enabled_plugins = InactivityWatch, CustomCommandsMenu, TestPlugin, ActivityWatch, TerminalShot, APTURLHandler, LaunchpadCodeURLHandler, Logger, MavenPluginURLHandler, LaunchpadBugURLHandler
+  extra_styling = False
+  geometry_hinting = True
+  handle_size = 0
+  tab_position = hidden
+  title_font = xos4 Terminus 10
+  title_hide_sizetext = True
+  title_use_system_font = False
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 7a2e785e-e4c0-470c-abce-94bfafa1c1ce
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 0:20
+      size = 1918, 1038
+      title = netstat -t -c
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 946
+      ratio = 0.493222106361
+      type = HPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 519
+      ratio = 0.5
+      type = VPaned
+    [[[child5]]]
+      order = 1
+      parent = child1
+      position = 519
+      ratio = 0.5
+      type = VPaned
+    [[[terminal3]]]
+      command = glances
+      order = 0
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = c1122ad1-5cf6-4235-ac53-172e896882ee
+    [[[terminal4]]]
+      command = journalctl -f
+      order = 1
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 7a2e785e-e4c0-470c-abce-94bfafa1c1ce
+    [[[terminal6]]]
+      command = ncmpcpp
+      order = 0
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = f4e11855-c6ad-43a7-ad83-8a4733da5ddc
+    [[[terminal7]]]
+      command = ""
+      order = 1
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = 0a8e5eac-9da8-4008-9bec-75c953e2ac6a
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.76
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = xos4 Terminus 9
+    foreground_color = "#ffffff"
+    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+    visible_bell = True
