@@ -12,7 +12,6 @@ gksu
 glances
 gtk-theme-elementary
 htop
-i3-gaps
 i3blocks
 i3status
 materia-theme
