@@ -26,7 +26,7 @@ Note: xfwm4 and xfdesktop processes will be replaced by the i3 Window Manager!
 
 next you need to remove autosave option under Settings > Settingseditor:
 * klick on xfce-session: and remove the boolean for "save on exit":
-![settings-editor](https://i.imgur.com/5yKYK77.png)
+![settings-editor](https://i.imgur.com/APHNGuX.png)
 
 **get i3 configs work:**
 
