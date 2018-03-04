@@ -32,11 +32,11 @@ Note: xfwm4 and xfdesktop processes will be replaced by the i3 Window Manager!
 
 * Fill out the form:
 
-'**Name:**  i3 (or whatever you want to call i3)'
+`**Name:**  i3 (or whatever you want to call i3)`
 
-'**Description:** Tiling Window Manager (or whatever you want)'
+`**Description:** Tiling Window Manager (or whatever you want)`
 
-'**Command:** i3 (must be "i3", as below)'
+`**Command:** i3 (must be "i3", as below)`
 
 
 * Click the button: OK
