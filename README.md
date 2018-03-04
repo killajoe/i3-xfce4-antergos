@@ -12,7 +12,7 @@ I just start up with the default XFCE-install from Antergos, and adding i3-wm pa
 ![i3-xfce4-joekamprad](https://i.imgur.com/Wd5tUxQ.jpg)
 
 
-# Open 'Session and Startup', and go to the 'Session' tab.
+**Open 'Session and Startup', and go to the 'Session' tab.**
 
 Note: xfwm4 and xfdesktop processes will be replaced by the i3 Window Manager!
 
@@ -24,12 +24,18 @@ Note: xfwm4 and xfdesktop processes will be replaced by the i3 Window Manager!
 
 * Click the button: **Save Session**.
 
+next you need to remove autosave option under Settings > Settingseditor:
+* klick on xfce-session: and remove the boolean for "save on exit":
+![settings-editor](https://i.imgur.com/5yKYK77.png)
 
-
-# get i3 configs work:
+**get i3 configs work:**
 
 `cp -R .config ~/.config && cp .Xresources  ~/`
 
 `sudo systemctl restart lightdm`
 
 and you are in!
+
+Use **arc-darker** as theme and **arc** iconset.
+
+
