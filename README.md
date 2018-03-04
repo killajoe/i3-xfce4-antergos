@@ -1,12 +1,14 @@
 # i3-xfce4-antergos
 my settings to use 3 as a WM inside XFCE4 under Antergos Linux
-will also work for pure Archlinux
+will also work for pure Archlinux!
 
+The benefit is to get i3 as environment for the best workflow, but have the ease of settings from xfce4!
+
+I replace xfcewm with i3-wm, and have i3 configured to my needs.
 
 I just start up with the default XFCE-install from Antergos, and adding i3-wm packages from my list of packages:
 
 `cat packages.txt | xargs yaourt -S --needed --noconfirm`
-
 
 
 ![i3-xfce4-joekamprad](https://i.imgur.com/Wd5tUxQ.jpg)
