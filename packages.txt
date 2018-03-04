@@ -1,5 +1,3 @@
-
-antergos-i3-meta
 arc-gtk-theme
 arc-icon-theme
 bash-completion
@@ -10,11 +8,17 @@ geary
 gksu
 glances
 htop
+i3-wm
 i3blocks
 i3status
+i3lock
+i3status
+awesome-terminal-fonts
+dmenu
 mplayer
 oh-my-zsh-git
 raw-thumbnailer
 rofi
 terminator
+polkit-gnome
 
