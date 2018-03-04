@@ -16,4 +16,5 @@ mplayer
 oh-my-zsh-git
 raw-thumbnailer
 rofi
+terminator
 
