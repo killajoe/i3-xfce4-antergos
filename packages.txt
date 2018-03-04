@@ -21,4 +21,6 @@ raw-thumbnailer
 rofi
 terminator
 polkit-gnome
+ttf-droid
+rsstail
 
