@@ -16,7 +16,7 @@ i3status
 awesome-terminal-fonts
 dmenu
 mplayer
-oh-my-zsh-git
+#oh-my-zsh-git
 raw-thumbnailer
 rofi
 terminator
