@@ -10,7 +10,7 @@ I3 is set to have 4 tabs on bottom left:
 
 **|Terminals|**  = 4 terminals with glances, journal, htop and one open for your input.
 
-**|Files|** = thunar open and up fpr action.
+**|Files|** = thunar open and up for action.
 
 **|Email|** = geary running.
 
